@@ -8,10 +8,12 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 weather = Weather(unit=Unit.FAHRENHEIT)
-location = weather.lookup_by_location('11954')
-condition = location.condition.temp
+location = weather.lookup_by_location('11572')
+conditionTemp = location.condition.temp
+condition = location.condition
 
 while True:
-    tweet = 'The current temperature in Montauk, NY is: ' + condition + chr(176)
+    tweet = 'It is currently ' + conditionTemp + chr(176) + ' and ' + str(condition.text).lower() + ' in Montauk, NY. ' \
+        '#weather #LIWeather #NYWeather #LongIsland'
     api.update_status(status=tweet)
     time.sleep(3600)

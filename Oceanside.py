@@ -11,10 +11,9 @@ weather = Weather(unit=Unit.FAHRENHEIT)
 location = weather.lookup_by_location('11572')
 conditionTemp = location.condition.temp
 condition = location.condition
-# condition.lower()
 
 while True:
-    # tweet = 'The current temperature in Oceanside, NY is: ' + conditionTemp + chr(176)
-    tweet = 'It is currently ' + str(condition.text).lower() + ' and ' + str(conditionTemp) + chr(176) + ' in Oceanside, NY.'
+    tweet = 'It is currently ' + conditionTemp + chr(176) + ' and ' + str(condition.text).lower() + ' in Oceanside, NY. ' \
+        '#weather #LIWeather #NYWeather #LongIsland'
     api.update_status(status=tweet)
-    # time.sleep(3600)
+    time.sleep(3600)
