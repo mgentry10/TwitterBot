@@ -9,10 +9,12 @@ api = tweepy.API(auth)
 
 weather = Weather(unit=Unit.FAHRENHEIT)
 location = weather.lookup_by_location('11572')
-condition = location.condition.temp
-
+conditionTemp = location.condition.temp
+condition = location.condition
+# condition.lower()
 
 while True:
-    tweet = 'The current temperature in Oceanside, NY is: ' + condition + chr(176)
+    # tweet = 'The current temperature in Oceanside, NY is: ' + conditionTemp + chr(176)
+    tweet = 'It is currently ' + str(condition.text).lower() + ' and ' + str(conditionTemp) + chr(176) + ' in Oceanside, NY.'
     api.update_status(status=tweet)
-    time.sleep(3600)
+    # time.sleep(3600)
