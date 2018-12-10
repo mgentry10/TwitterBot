@@ -21,5 +21,5 @@ while True:
     tweet = 'It is ' + str(condition.text).lower() + ' and ' + str(conditionTemp) + chr(176) +  \
             ' in Oceanside, NY.' + random.choice(hashtags) + ' ' + random.choice(hashtags) + ' ' + random.choice(hashtags)
     api.update_status(status=tweet)
-    time.sleep(30)
+    time.sleep(3600)
     continue
