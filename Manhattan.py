@@ -18,7 +18,7 @@ conditionTemp = location.condition.temp
 condition = location.condition
 
 while True:
-    tweet = 'At ' + str(st) + ', it is ' + str(condition.text).lower() + ' and ' + str(conditionTemp) + chr(176) +  \
+    tweet = 'It is ' + str(condition.text).lower() + ' and ' + str(conditionTemp) + chr(176) +  \
             ' in Manhattan, NY.' + random.choice(hashtags) + ' ' + random.choice(hashtags) + ' ' + random.choice(hashtags)
     api.update_status(status=tweet)
     time.sleep(3600)
