@@ -15,8 +15,15 @@ conditionTemp = location.condition.temp
 condition = location.condition
 
 while True:
+    hashtag1 = hashtags[0]
+    hashtag2 = hashtags[1]
+
     tweet = 'It is ' + str(condition.text).lower() + ' and ' + str(conditionTemp) + chr(176) +  \
-            ' in Commack, NY. ' + random.choice(hashtags) + ' ' + random.choice(hashtags) + ' ' + random.choice(hashtags)
+            ' in Commack, NY. ' + hashtag1 + ' ' + hashtag2 + ' '
     api.update_status(status=tweet)
+    hashtags.append(hashtag1)
+    hashtags.append(hashtag2)
+    hashtags.pop(0)
+    hashtags.pop(0)
     time.sleep(3600)
     continue
